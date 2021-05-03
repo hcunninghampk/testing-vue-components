@@ -22,9 +22,11 @@
 
     methods: {
       addToBasket() {
-        if (this.fruit.trim().length <= 0) return
-        this.basket.push(this.fruit)
-        this.fruit = ''
+        if (this.fruit.trim().length <= 0)
+          return;
+
+        this.basket.push(this.fruit);
+        this.fruit = '';
       }
     }
   }
