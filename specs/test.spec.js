@@ -6,7 +6,7 @@ import ListComponent from '@/list.vue'
 creates a Wrapper containing the mounted and rendered Vue component. */
 it('should mount a vue TestComponent', () => {
     const wrapper = mount(TestComponent);
-    console.log(wrapper);
+    console.log("TestComponent wrapper: " + wrapper);
     expect(wrapper.text()).toContain("Hello Test");
 
     //Wrapper HTML function returns the entire component DOM node as a string. toMatchSnapshot() creates a snapshot
@@ -14,7 +14,7 @@ it('should mount a vue TestComponent', () => {
     // at Vue School, but this class is not free.
     //debugger;
     expect(wrapper.html()).toMatchSnapshot();
-    console.log(wrapper.html());
+    console.log("TestComponent wrapper html(): " + wrapper.html());
     expect(wrapper.html()).toContain("<h1>Hello Test</h1>");
 });
 
@@ -26,7 +26,7 @@ it('should override the default value to say Hello to in the TestComponent', () 
     expect(wrapper.text()).toContain("Hello VueSchool");
 
     expect(wrapper.html()).toMatchSnapshot();
-    console.log(wrapper.html());
+    console.log("Overriden TestComponent wrapper html(): " + wrapper.html());
     expect(wrapper.html()).toContain("<h1>Hello VueSchool</h1>");
 });
 
