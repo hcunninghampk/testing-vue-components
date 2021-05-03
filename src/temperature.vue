@@ -18,17 +18,17 @@ export default {
 
   computed: {
     celsius() {
-      if (this.type == 'celsius')
-        return this.degrees
+      if (this.type === 'celsius')
+        return this.degrees;
       else
-        return parseInt((this.degrees - 32) * 0.556)
+        return parseInt((this.degrees - 32) * 0.556);
     },
 
     fahrenheit() {
-      if (this.type == 'fahrenheit')
-        return this.degrees
+      if (this.type === 'fahrenheit')
+        return this.degrees;
       else
-        return (this.degrees * 1.8) + 32
+        return (this.degrees * 1.8) + 32;
     }
   },
 
@@ -36,9 +36,9 @@ export default {
     temp: {
       immediate: true,
       handler: function(val)  {
-        if (!val) return
-        this.degrees = parseInt(val)
-        this.type = String(val).endsWith('f') ? 'fahrenheit' : 'celsius'
+        if (!val) return;
+        this.degrees = parseInt(val);
+        this.type = String(val).endsWith('f') ? 'fahrenheit' : 'celsius';
       }
     }
   }
