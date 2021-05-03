@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "jest": "jest"
+    "test": "jest"
   },
   "repository": "https://github.com/codebryo/vue-school-test-utils-base.git",
   "author": "Roman Kuba <roman.kuba@gmail.com>",
