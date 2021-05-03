@@ -1,6 +1,6 @@
 <template>
   <div class="alert">
-    <p>I'm a alert message!</p>
+    <p>I'm an alert message!</p>
     <p>Time left {{ timeLeft }}</p>
   </div>
 </template>
