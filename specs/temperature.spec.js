@@ -28,10 +28,23 @@ describe('Computed and Watched Properties Tests', () => {
         expect(vm.fahrenheit).toBe(60.8);
     });
 
+    test('temperature watcher method should update temperature', async () => {
+        const wrapper = mount(Temperature, {propsData: {temp: 40}});
+        const {vm} = wrapper;
+        expect(vm.degrees).toBe(40);
+        expect(vm.type).toBe('celsius');
+
+        wrapper.setProps({temp: 20});
+        await wrapper.vm.$nextTick();
+        console.log("Current degrees: " + vm.degrees + " " + vm.type);
+        expect(vm.degrees).toBe(20);
+        expect(vm.type).toBe('celsius');
+    });
+
     //can suffix test with .skip or prefix with x to skip, but then lists output as pending test
-    test('temperature watcher method', async () => {
+    test('temperature watcher method should update temperature and degrees type', async () => {
         //set the default data to be 40 degrees celsius
-        const wrapper = mount(Temperature, {propsData: {temp: 40/*, watch: '40c'*/}});
+        const wrapper = mount(Temperature, {propsData: {temp: 40}});
         const {vm} = wrapper;
         expect(vm.degrees).toBe(40);
         expect(vm.type).toBe('celsius');
@@ -61,4 +74,32 @@ describe('Computed and Watched Properties Tests', () => {
         expect(vm.degrees).toBe(50);
         expect(vm.type).toBe('fahrenheit');
     });
+
+    test('temperature watcher method should simply return when a null value is passed in', async () => {
+        const wrapper = mount(Temperature, {propsData: {temp: 40/*, watch: '40c'*/}});
+        const {vm} = wrapper;
+        expect(vm.degrees).toBe(40);
+        expect(vm.type).toBe('celsius');
+
+        wrapper.setProps({temp: null});
+        await wrapper.vm.$nextTick();
+        console.log("Current degrees: " + vm.degrees + " " + vm.type);
+        expect(vm.degrees).toBe(40);
+        expect(vm.type).toBe('celsius');
+    });
+
+    test('temperature watcher method should simply return when an empty String is passed in', async () => {
+        const wrapper = mount(Temperature, {propsData: {temp: 40/*, watch: '40c'*/}});
+        const {vm} = wrapper;
+        expect(vm.degrees).toBe(40);
+        expect(vm.type).toBe('celsius');
+
+        wrapper.setProps({temp: ''});
+        await wrapper.vm.$nextTick();
+        console.log("Current degrees: " + vm.degrees + " " + vm.type);
+        expect(vm.degrees).toBe(40);
+        expect(vm.type).toBe('celsius');
+    });
+
+
 });
