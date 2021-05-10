@@ -23,7 +23,7 @@ test("shallowMount of List Component", () => {
      a string, and you pass it an obj that is { Component || string || boolean } || Array<string> .  */
     //const wrapper = shallowMount(ListComponent/*, {stubs: {ListItem: '<div class="list-item" />'}}*/);
     const wrapper = shallowMount(ListComponent, {stubs: {'list-item': ListItemStub}});
-    //The above does the exact same behavior as if I had only shallowMounted the ListComp.  This lesson makes 0 sense.
+    //The above does the exact same behavior as if I had only shallowMounted the ListComp alone w/o stubs.  This lesson makes 0 sense.
 
     expect(wrapper).toMatchSnapshot();
 
