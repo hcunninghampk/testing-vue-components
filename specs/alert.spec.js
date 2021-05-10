@@ -8,6 +8,7 @@ describe('Lifecycle Method Tests', () => {
 
     test('mounted() should assign an interval', () => {
         const wrapper = mount(AlertMessage);
+        expect(wrapper.html()).toMatchSnapshot();
         expect(wrapper.vm.interval).not.toBe(undefined);
     });
 
