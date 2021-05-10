@@ -3,6 +3,12 @@ import {mount} from '@vue/test-utils'
 
 describe('Computed and Watched Properties Tests', () => {
 
+    it('should mount a Temperature Component', () => {
+        const wrapper = mount(Temperature);
+        expect(wrapper).toMatchSnapshot();
+        expect(wrapper.html()).toMatchSnapshot();
+    });
+
     test('celsius property', () => {
         //const wrapper = mount(Temperature);
         const {vm} = mount(Temperature);
