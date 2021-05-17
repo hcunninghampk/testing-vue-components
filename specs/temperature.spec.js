@@ -9,7 +9,7 @@ describe('Computed and Watched Properties Tests', () => {
         expect(wrapper.html()).toMatchSnapshot();
     });
 
-    test('celsius property', () => {
+    test('celsius computed property', () => {
         //const wrapper = mount(Temperature);
         const {vm} = mount(Temperature);
         //expect(wrapper.vm.celsius).toBe(0);
@@ -26,7 +26,7 @@ describe('Computed and Watched Properties Tests', () => {
         expect(vm.celsius).toBe(23);
     });
 
-    test('fahrenheit property converted from celsius', () => {
+    test('fahrenheit computed property converted from celsius', () => {
         const {vm} = mount(Temperature);
         expect(vm.fahrenheit).toBe(32);
 

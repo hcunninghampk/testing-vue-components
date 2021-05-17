@@ -35,7 +35,7 @@ it('should add fruit to the basket with the DOM', /*async*/ () => {
     expect(wrapper.vm.fruit).toBe('');
     //The array for the basket should now contain banana
     expect(wrapper.vm.basket).toEqual(expect.arrayContaining(['banana']));
-    //findAll() returns an array of components matching the CSS selector, but is deperacted; use findAllComponents().
+    //findAll() returns an array of components matching the CSS selector, but is deprecated; use findAllComponents().
     wrapper.vm.$nextTick(() => {
         expect(wrapper.findAll('li').length).toBe(1);
     });
